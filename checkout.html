@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - Online Bookstore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Checkout</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Shipping Information</h2>
+    <form id="checkout-form">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label for="address">Address:</label>
+      <input type="text" id="address" name="address" required>
+
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required>
+
+      <label for="postalCode">Postal Code:</label>
+      <input type="text" id="postalCode" name="postalCode" required>
+
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <h3>Order Summary</h3>
+      <div id="order-summary"></div>
+      <p>Total: $<span id="checkout-total">0.00</span></p>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Online Bookstore</p>
+  </footer>
+
+  <script>
+    // Populate order summary from local storage
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const summaryContainer = document.getElementById('order-summary');
+    const totalSpan = document.getElementById('checkout-total');
+    let total = 0;
+
+    cart.forEach(item => {
+      const p = document.createElement('p');
+      p.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+      summaryContainer.appendChild(p);
+      total += item.price;
+    });
+
+    totalSpan.textContent = total.toFixed(2);
+
+    // Checkout form validation
+    const form = document.getElementById('checkout-form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you for your purchase!');
+      localStorage.removeItem('cart');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>

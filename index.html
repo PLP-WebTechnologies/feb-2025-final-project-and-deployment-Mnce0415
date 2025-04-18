@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Bookstore</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Mnce's Online Bookstore</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Available Books</h2>
+
+    <div class="product-list">
+      <div class="product">
+        <img src="shoedog.png" alt="Shoe Dog">
+        <h3>Shoe Dog</h3>
+        <p>Author: Phil Knight</p>
+        <p>Published: 2016</p>
+        <p>Genre: Memoir / Business</p>
+        <p>Price: $19.99</p>
+        <button onclick="addToCart('Shoe Dog', 19.99)">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="thewealthmoneycantbuy.jpg" alt="The Wealth Money Can't Buy">
+        <h3>The Wealth Money Can't Buy</h3>
+        <p>Author: Robin Sharma</p>
+        <p>Published: 2023</p>
+        <p>Genre: Self-Help / Personal Development</p>
+        <p>Price: $21.99</p>
+        <button onclick="addToCart('The Wealth Money Can\'t Buy', 21.99)">Add to Cart</button>
+      </div>
+
+      <div class="product">
+        <img src="romeoandjuliet.jpg" alt="Romeo and Juliet">
+        <h3>Romeo and Juliet</h3>
+        <p>Author: William Shakespeare</p>
+        <p>Published: 1597</p>
+        <p>Genre: Tragedy / Drama / Romance</p>
+        <p>Price: $14.99</p>
+        <button onclick="addToCart('Romeo and Juliet', 14.99)">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <button id="scrollTopBtn" title="Go to top">⬆</button>
+
+  <footer>
+    <p>&copy; 2025 Online Bookstore</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
